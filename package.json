@@ -1,6 +1,6 @@
 {
   "name": "coc-nelua",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Nelua language server extension for coc.nvim",
   "author": "UrNightmaree <afiqquraisyzulkarnain@gmail.com>",
   "license": "MIT",
@@ -49,16 +49,16 @@
           "default": true,
           "description": "Enable coc-nelua extension"
         },
-				"coc-nelua.serverDir": {
-					"type": "string",
-					"default": "",
-					"description": "Server directory for nelua-lsp"
-				},
-				"coc-nelua.neluaBin": {
-					"type": "string",
-					"default": "nelua",
-					"description": "Nelua binary filename"
-				}
+        "coc-nelua.serverDir": {
+          "type": "string",
+          "default": "",
+          "description": "Server directory for nelua-lsp"
+        },
+        "coc-nelua.neluaBin": {
+          "type": "string",
+          "default": "nelua",
+          "description": "Nelua binary filename"
+        }
       }
     },
     "commands": [
