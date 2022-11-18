@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { commands, CompleteResult, ExtensionContext, LanguageClient, LanguageClientOptions, ServerOptions, services, sources, window, workspace } from 'coc.nvim';
+import { commands, ExtensionContext, LanguageClient, LanguageClientOptions, ServerOptions, services, window, workspace } from 'coc.nvim';
 
 interface NeluaConfig {
 	enable: boolean
@@ -9,8 +9,8 @@ interface NeluaConfig {
 }
 
 export async function activate(context: ExtensionContext): Promise<void> {
-	const config = workspace.getConfiguration().get('nelua',{}) as NeluaConfig
-	if ( ! config.enable ) return;
+	const config = workspace.getConfiguration().get('coc-nelua',{}) as NeluaConfig
+	if ( ! (config.enable || true) ) return;
 
 	const serverOptions: ServerOptions = {
 		command: (config.neluaBin || 'nelua'),
@@ -30,7 +30,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
 			const { version } = JSON.parse(fs.readFileSync(path.resolve(rootDir,'package.json'),'utf-8'));
 
 			window.showMessage(
-`Version: ${version}
+`
+Version: ${version}
 Node: ${process.versions.node}`,'more')
 		})
 	);
